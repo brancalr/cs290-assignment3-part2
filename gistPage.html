@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>List of Recent Gists</title>
+		<script src='gistPage.js'></script>
+	</head>
+	<body>
+	  <fieldset>
+	  <form>
+	    Select Number of Pages of Results to Display:<br>
+	    <input type='radio' name='pages' value='1'>1<br>
+	    <input type='radio' name='pages' value='2'>2<br>
+	    <input type='radio' name='pages' value='3'>3<br>
+	    <input type='radio' name='pages' value='4'>4<br>
+	    <input type='radio' name='pages' value='5'>5<br>
+		<!-- <input type='button' name='submit' value='Submit'> -->
+	  </fieldset>
+	  <fieldset>
+	    Select Which language(s) of Gists to See:<br>
+		<input type='checkbox' name='languages' value='Python'>Python<br>
+		<input type='checkbox' name='languages' value='JSON'>JSON<br>
+		<input type='checkbox' name='languages' value='JavaScript'>JavaScript<br>
+		<input type='checkbox' name='languages' value='SQL'>SQL<br>
+	  </fieldset>
+	    <input type='button' name='search' onclick='getGists()' value='Search'>
+	  </form>
+	</body>
+</html>
