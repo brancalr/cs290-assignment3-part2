@@ -17,3 +17,9 @@ Tasks: updated objects.js and variables.js
 Start: Tue, 27 Jan 19:00:00 -0500
 End: Tue, 27 Jan 2015 23:23:58 -0500
 Tasks: initialized repo, began work on html and javascript components
+
+****12-15 HOURS OF WORK THAT I CONSISTENTLY FORGOT TO COMMIT THAT NEVER GOT LOGGED******
+
+Start: Sun, Feb 1 19:00:00 -0500
+End: Sun Feb 1 22:32:25 2015 -0500
+Tasks: updated gistPage html and JS

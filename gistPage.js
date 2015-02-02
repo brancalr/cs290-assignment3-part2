@@ -1,5 +1,6 @@
 var settings = null;
 var gistArray = [];
+var gistFinalArr = [];
 var gistFav = [];
 
 function Gist(link, description) {
@@ -20,27 +21,24 @@ function getGists() {
 	      var httpParse = JSON.parse(this.responseText);
 		  for ( var key in httpParse ) {
 		    gistArray.push(httpParse[key]);
-		    /*for ( var i = 0; i < 4; i++ ) {
-		      if ( !document.getElementsByName('languages')[i].checked ) {
-		        gistArray.push(httpParse[key]);
-			  }
-			}*/
-		    //else {
-		      /*var filesObj = httpParse[key].files;
+		  }
+		  //this code correctly isolates the language from the Gists, however
+		  //I was not able to properly filter the Gist array using it.
+		  /*for ( var i = 0; i < gistArray.length; i++ ) { 
+		    var filesObj = gistArray[i].files;
 		      for ( var j in filesObj ) {
 		        var innerObjLanguage = filesObj[j].language;
-			    for (var i=0; i < 4; i++ ) {
-			      if( document.getElementsByName('languages')[i].checked ) {
-			        if ( document.getElementsByName('languages')[i].value == innerObjLanguage ) {
-                      gistArray.push(httpParse[i]);
+			    for (var k=0; k < 4; k++ ) {
+			      if( document.getElementsByName('languages')[k].checked ) {
+			        if ( document.getElementsByName('languages')[k].value == innerObjLanguage ) {
+                      gistFinalArr.push(gistArray[i]);
 				    }
 	              }
                 }	
-		      }*/
-			//}
-	      }	
-		}
-		  console.log(creatGistList(gistArray));
+		      }
+		  }*/
+		} 
+		creatGistList(gistArray);
 	 }
 	}
   }
@@ -50,13 +48,13 @@ function getGists() {
 }
 
 window.onload = function() {
-  settings = localStorage.getItem('gistList');
-  if( settings === null ) {
-    settings = {'gists':[]};
-	localStorage.setItem('gistList', JSON.stringify(settings));
+  var list = localStorage.getItem('gistList');
+  if( list === null ) {
+    list = {'gists':[]};
+	localStorage.setItem('gistList', JSON.stringify(list));
   }
   else {
-    settings = JSON.parse(localStorage.getItem('gistList'));
+    list = JSON.parse(localStorage.getItem('gistList'));
   }
   displayFav();
 }
@@ -70,20 +68,20 @@ function creatGistList(array) {
 	 var divURL = document.createElement('div');
 	 divURL.innerHTML = '<a href="'+ array[i].url + '">' + "No Description" + '</a>';
 	 item.appendChild(divURL);
-     var divButton = document.createElement('div');
-	 divButton.innerHTML = '<input type="button" onclick="saveGist();displayFav()" value="Add to Favorites">';
-	 item.appendChild(divButton);
-	 //var g = new Gist(array[i].url, array[i].description);
-	 //sessionStorage.setItem('gistList', JSON.stringify(g));
 	}
 	else {
 	 var divURL = document.createElement('div')
 	 divURL.innerHTML = '<a href="'+ array[i].url + '">' + array[i].description + '</a>';
 	 item.appendChild(divURL);
-	 var divButton = document.createElement('div');
-	 divButton.innerHTML = '<input type="button" onclick="saveGist();displayFav()" value="Add to Favorites">';
-	 item.appendChild(divButton);
 	}
+	this.favorite = document.createElement('button');
+	this.favorite.innerHTML = "Add to Favorites";
+	this.favorite.onclick = function() {
+	  localStorage.setItem('gistList', JSON.stringify(this.parentNode.textContent));
+	  this.parentNode.style.display='none';
+	  displayFav();
+	}
+	 item.appendChild(favorite);
 	 ul.appendChild(item);
 	 list.appendChild(ul);
   }
@@ -93,25 +91,21 @@ function creatGistList(array) {
 function displayFav() {
   var list = document.getElementById('display');
   var ul = document.createElement('ul');
-  for ( var i = 0; i < gistFav.length; i++ ) {
+  for ( var key in localStorage ) {
     var item = document.createElement('li');
-	item.innerHTML = gistFav[i].url;
+	item.innerHTML = localStorage[key];
+	this.deleteButton = document.createElement('button');
+	this.deleteButton.innerHTML = "Remove from Favorites";
+	this.deleteButton.onclick = function() {
+	  this.parentNode.style.display='none';//thank you brian lamere on canvas discussion board
+	  localStorage.clear();
+	  displayFav();
+	}
+	item.appendChild(deleteButton);
 	ul.appendChild(item);
 	list.appendChild(ul);
   }
   return list; 
-}
-
-function saveGist() {
-  //var save = JSON.parse(document.getElementsByID('gist-list').childNodes[3]);
-  //this.sess = JSON.parse(sessionStorage.getItem('gistList'));
-  //localStorage.setItem('gistList', JSON.stringify(sess));
-  for ( var i = 0; i < gistArray.length; i++ ) {
-    gistFav.push(gistArray[i]);
-	console.log(gistFav[i]);
-  }
- // var save = JSON.parse(gistFav);
-  //localStorage.setItem('gistList', JSON.stringify(save));
 }
 
 /*function addGist(url, description) {
