@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Assignment 3, Part 2: Adding AJAX and HTML
 ==========================================
 In this assignment you will build on your JavaScript skills to make a functional website that uses asynchronous calls to pull data from an online provider. In addition to this you will allow users to mark favorites and save them using local storage so that they are displayed when they return to the page without the need for any additional AJAX calls.
@@ -48,3 +49,6 @@ The test protocol for this will be manual. A rough outline will be as follows:
 - Unfavorite some subset of favorites.
 - Refresh the page, making sure they are still removed.
 - Delete some subset of the favorited results.
+=======
+# cs290-assignment3-part2
+>>>>>>> 5c386d596e44b18a747a9280081317a528fd9ab7
