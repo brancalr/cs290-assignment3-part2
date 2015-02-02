@@ -23,3 +23,7 @@ Tasks: initialized repo, began work on html and javascript components
 Start: Sun, Feb 1 19:00:00 -0500
 End: Sun Feb 1 22:32:25 2015 -0500
 Tasks: updated gistPage html and JS
+
+Start: Sun Feb 1 23:00:00 -0500
+End: Mon, 2 Feb 2015 01:24:24 -0500
+Tasks: made changes to source files, language filter and pagination properties incomplete
