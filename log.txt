@@ -1,0 +1,19 @@
+Your log goes in this  file.
+
+Start: Thu, 22 Jan 2015 20:00:00 -0500
+End: Thu, 22 Jan 2015 22:56:28 -0500
+Tasks: 'initialized repository and updated source files.'
+
+Start: Fri Jan 24 20:00:00 2015 -0500 
+End: Sat Jan 24 00:33:03 2015 -0500 
+Tasks: updated source files
+
+Start: Sat Jan 24 13:30:00 2015 -0500
+End: Sat Jan 24 14:45:11 2015 -0500
+Tasks: updated objects.js and variables.js
+
+#Begin Part 2
+
+Start: Tue, 27 Jan 19:00:00 -0500
+End: Tue, 27 Jan 2015 23:23:58 -0500
+Tasks: initialized repo, began work on html and javascript components
