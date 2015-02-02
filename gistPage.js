@@ -108,16 +108,4 @@ function displayFav() {
   return list; 
 }
 
-/*function addGist(url, description) {
-  for( var i = 0; i < array.length; i++ ) {
-    if ( array[i].description === null || array[i].description.length === 0 ) { 
-      var g = Gist(array[i].url, 'No Description');
-	  gists.push(g);
-	}
-	else {
-	  var g = Gist('hello', 'world');
-	  gists.push(g);
-	
-  }
-}*/
     
